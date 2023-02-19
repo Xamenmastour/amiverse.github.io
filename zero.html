@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>VR Quiz Game with Avatar and Navigation</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-avatar-component"></script>
+    <script src="https://unpkg.com/aframe-gui/dist/aframe-gui.min.js"></script>
+    <script src="https://unpkg.com/aframe-mouse-cursor-component"></script>
+    <link src="zero.js">
+  </head>
+  <body>
+    <a-scene quiz avatar-navigation>
+      <a-entity environment="preset: forest"></a-entity>
+      <a-entity id="startButton" button position="0 1 -3.5" scale="0.5 0.5 0.5" text="value: Start Quiz; color: white; width: 4;" events="click: startQuiz"></a-entity>
+
+
+      <a-entity camera position="0 1.6 0" look-controls>
+        <a-entity avatar="rig: oculus"></a-entity>
+      </a-entity>
+
+      <a-entity id="question" position="0 1.5 -2">
+        <a-text value="Question 1" color="#333" width="4"></a-text>
+      </a-entity>
+
+      <a-entity id="answers">
+        <a-entity class="answer" position="-2 1 -2" data-correct="false">
+          <a-box color="#4CC3D9"></a-box>
+          <a-text value="Answer 1A" color="#333"></a-text>
+        </a-entity>
+        <a-entity class="answer" position="2 1 -2" data-correct="false">
+          <a-box color="#4CC3D9"></a-box>
+          <a-text value="Answer 1B" color="#333"></a-text>
+        </a-entity>
+        <a-entity class="answer" position="-2 0.5 -2" data-correct="true">
+          <a-box color="#4CC3D9"></a-box>
+          <a-text value="Answer 1C" color="#333"></a-text>
+        </a-entity>
+        <a-entity class="answer" position="2 0.5 -2" data-correct="false">
+          <a-box color="#4CC3D9"></a-box>
+          <a-text value="Answer 1D" color="#333"></a-text>
+        </a-entity>
+      </a-entity>
+
+      <a-entity id="timer" position="0 0.5 -2">
+        <a-text value="Time: 10" color="#333" width="4"></a-text>
+      </a-entity>
+
+      <a-entity id="nav" position="0 1.6 0">
+        <a-camera>
+          <a-entity cursor="fuse: true; fuseTimeout: 500" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02" material="color: black; shader: flat"></a-entity>
+        </a-camera>
+        <a-gui-flex-container flex-direction="column" align-items="normal" component-padding="0.1" opacity="0.7" panel-color="#AAA" width="3" height="1.5" position="0 0 -0.5">
+          <a-gui-button width="2" height="0.5" value="Start" onclick="startQuiz()"></a>
+          </body>
+          </html>
